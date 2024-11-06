@@ -1,0 +1,23 @@
+.include 4bitowy.sp
+* test bench connection diagram
+* adder
+XSUM A1 A2 A3 A4 B1 B2 B3 B4 Cin S1 S2 S3 S4 Cout VDD VSS 4BITOWY
+* supply DC voltage
+Vsupply VDD VSS DC 1.2
+* ground
+VSS VSS 0 0
+VS0 Cin VSS PULSE (0 1.2 50n 10p 1n 50n 100n)
+VS1 A1 VSS DC 1.2
+VS2 B1 VSS DC 0
+VS3 A2 VSS DC 1.2
+VS4 B2 VSS DC 0
+VS5 A3 VSS DC 1.2
+VS6 B3 VSS DC 0
+VS7 A4 VSS DC 1.2
+VS8 B4 VSS DC 0
+
+CS0 S1 VSS 0
+CS1 S2 VSS 0
+CS2 S3 VSS 0
+CS3 S4 VSS 0
+CCout Cout VSS 0

@@ -1,0 +1,19 @@
+* Path to the test bench file
+.INCLUDE C:\Users\kamie\Documents\CMOS\MOS\inwerter_tb.sp
+* Path to the models
+.include C:\Users\kamie\Documents\CMOS\MOS\psp102_nmos.mod
+.include C:\Users\kamie\Documents\CMOS\MOS\psp102_pmos.mod
+* Simulation setting
+.control
+* Analysis
+* TYPE STEP STOP START
+*DC VG 0 1.2V 0.02V
+TRAN 1n 1000n 0  
+* PLOT
+plot i(VSD)
+meas tran result AVG i(VSD) from=0 to=1
+
+* plot dVOUT/dVIN -> pochodna
+*plot deriv(v(VOUT))
+.endc
+.end

@@ -1,0 +1,48 @@
+* Sumator netlist
+.INCLUDE C:\Users\kamie\Documents\CMOS\SUMATOR\psp102_nmos.mod
+.INCLUDE C:\Users\kamie\Documents\CMOS\SUMATOR\psp102_pmos.mod
+
+.subckt SUMATOR A B C S_inv Ca_inv VDD VSS
+
+********************* Carry unit
+*PMOS array
+M1 s1 A VDD VDD PCH L=0.065u W=0.94u M=1
+M2 s1 B VDD VDD PCH L=0.065u W=0.94u M=1
+M3 s2 B s1 VDD PCH L=0.065u W=0.94u M=1
+M4 Ca C s1 VDD PCH L=0.065u W=0.94u M=1
+M5 Ca A s2 VDD PCH L=0.065u W=0.94u M=1
+
+*NMOS array
+M6 s3 A VSS VSS NCH L=0.065u W=0.2u M=1
+M7 s3 B VSS VSS NCH L=0.065u W=0.2u M=1
+M8 s4 B VSS VSS NCH L=0.065u W=0.2u M=1
+M9 Ca C s3 VSS NCH L=0.065u W=0.2u M=1
+M10 Ca A s4 VSS NCH L=0.065u W=0.2u M=1
+
+*INV
+M11 Ca_inv Ca VSS VSS NCH L=0.065u W=0.2u M=1
+M12 Ca_inv Ca VDD VDD PCH L=0.065u W=0.94u M=1
+
+********************* Sum unit
+*PMOS array
+M13 s5 A VDD VDD PCH L=0.065u W=0.94u M=1
+M14 s5 B VDD VDD PCH L=0.065u W=0.94u M=1
+M15 s5 C VDD VDD PCH L=0.065u W=0.94u M=1
+M16 s6 A s5 VDD PCH L=0.065u W=0.94u M=1
+M17 s7 B s6 VDD PCH L=0.065u W=0.94u M=1
+M18 S C s7 VDD PCH L=0.065u W=0.94u M=1
+M19 S Ca s5 VDD PCH L=0.065u W=0.94u M=1
+
+*NMOS array
+M20 s8 A VSS VSS NCH L=0.065u W=0.2u M=1
+M21 s8 B VSS VSS NCH L=0.065u W=0.2u M=1
+M22 s8 C VSS VSS NCH L=0.065u W=0.2u M=1
+M23 s9 B VSS VSS NCH L=0.065u W=0.2u M=1
+M24 s10 A s9 VSS NCH L=0.065u W=0.2u M=1
+M25 S C s10 VSS NCH L=0.065u W=0.2u M=1
+M26 S Ca s8 VSS NCH L=0.065u W=0.2u M=1
+
+*INV
+M27 S_inv S VSS VSS NCH L=0.065u W=0.2u M=1
+M28 S_inv S VDD VDD PCH L=0.065u W=0.94u M=1
+.ends

@@ -1,0 +1,18 @@
+* Path to the test bench file
+.include sumator_tb.sp
+* Path to the models
+.include psp102_nmos.mod
+.include psp102_pmos.mod
+
+* Simulation setting
+.control
+* Analysis
+* TYPE STEP STOP START
+TRAN 1n 400n 0
+
+* Output results
+plot V(A) V(B) V(C)
+plot V(SUM) 
+plot V(CARRY)
+.endc
+.end

@@ -1,0 +1,7 @@
+C:\Users\kamie\Documents\CMOS\MOS\NMOS.sp
+
+C:\Users\kamie\Documents\CMOS\MOS\PMOS.sp
+
+C:\Users\kamie\Documents\CMOS\MOS\run.cir
+
+C:\Users\kamie\Documents\CMOS\SUMATOR\run.cir
